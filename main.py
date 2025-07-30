@@ -1,54 +1,49 @@
-
 import tkinter as tk
+from tkinter import ttk
 from datetime import datetime
 
 root = tk.Tk()
 root.title("FocusZen")
-root.configure(bg="#121212")
+root.configure(bg="#000000")
 width = root.winfo_screenwidth()
 height = root.winfo_screenheight()
 root.geometry(f"{width}x{height}")
+root.overrideredirect(True)
 
-MAIN_COLOR = "#a3aef7"
+MAIN_COLOR = "#8cc9ea"
+DARKER_MAIN = "#5da9cb"
 TEXT_COLOR = "#ffffff"
 ACCENT_COLOR = "#aaaaaa"
-FONT_HEADING = ("Helvetica Neue", 52, "bold")
-FONT_TIMER = ("Helvetica Neue", 90)
-FONT_SMALL = ("Helvetica Neue", 14)
-FONT_MEDIUM = ("Helvetica Neue", 20)
-FONT_LABEL = ("Helvetica Neue", 18)
+FONT_HEADING = ("Segoe UI", 28, "bold")
+FONT_TIMER = ("San Frans", 180, "bold")
+FONT_SMALL = ("Segoe UI", 12)
+FONT_LABEL = ("Segoe UI", 17)
+FONT_BUTTON = ("Segoe UI", 16, "bold")
 
-button_style = {
-    "font": ("Helvetica Neue", 18, "bold"),
-    "fg": "#121212",
-    "bg": MAIN_COLOR,
-    "activebackground": "#00ccaa",
-    "activeforeground": "#00A6FF",
-    "bd": 0,
-    "relief": "flat",
-    "padx": 25,
-    "pady": 12
-}
+style = ttk.Style()
+style.theme_use("clam")
+style.configure("Rounded.TButton", font=FONT_BUTTON, foreground="#121212", background=MAIN_COLOR, padding=10, borderwidth=0, focusthickness=0)
+style.map("Rounded.TButton",background=[("active", DARKER_MAIN)])
 
-current_time = tk.Label(root, font=FONT_SMALL, fg=ACCENT_COLOR, bg="#121212")
+current_time = tk.Label(root, font=FONT_SMALL, fg=ACCENT_COLOR, bg="#000000")
 current_time.place(x=20, y=10)
 
-heading = tk.Label(root, text="FocusZen", font=FONT_HEADING, fg=MAIN_COLOR, bg="#121212")
-heading.pack(pady=(60, 30))
+heading = tk.Label(root, text="FocusZen", font=FONT_HEADING, fg=MAIN_COLOR, bg="#000000")
+heading.place(x=width - 190, y=0)
 
-timer_label = tk.Label(root, text="25:00", font=FONT_TIMER, fg=TEXT_COLOR, bg="#121212")
-timer_label.pack(pady=20)
+timer_label = tk.Label(root, text="25:00", font=FONT_TIMER, fg=TEXT_COLOR, bg="#000000")
+timer_label.place(relx=0.5, rely=0.35, anchor="center")
 
-result_label = tk.Label(root, font=FONT_LABEL, fg=ACCENT_COLOR, bg="#121212")
-result_label.pack(pady=20)
+result_label = tk.Label(root, font=FONT_LABEL, fg=ACCENT_COLOR, bg="#000000")
+result_label.place(relx=0.5, rely=0.55, anchor="center")
 
-button_frame = tk.Frame(root, bg="#121212")
-button_frame.pack(pady=30)
+button_frame = tk.Frame(root, bg="#000000")
+button_frame.place(relx=0.5, rely=0.65, anchor="center")
 
-start_button = tk.Button(button_frame, text="▶ Start", command=lambda: start_timer(), **button_style)
+start_button = ttk.Button(button_frame, text="Start", command=lambda: start_timer(), style="Rounded.TButton")
 start_button.pack(side="left", padx=15)
 
-stop_button = tk.Button(button_frame, text="⏹ Stop", command=lambda: stop_timer(), **button_style)
+stop_button = ttk.Button(button_frame, text="Stop", command=lambda: stop_timer(), style="Rounded.TButton")
 stop_button.pack(side="left", padx=15)
 
 work_duration = 25 * 60

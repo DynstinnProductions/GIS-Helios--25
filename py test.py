@@ -12,14 +12,14 @@ root.geometry(f"{width}x{height}")
 MAIN_COLOR = "#a3aef7"
 TEXT_COLOR = "#ffffff"
 ACCENT_COLOR = "#aaaaaa"
-FONT_HEADING = ("Helvetica Neue", 52, "bold")
-FONT_TIMER = ("Helvetica Neue", 90)
-FONT_SMALL = ("Helvetica Neue", 14)
-FONT_MEDIUM = ("Helvetica Neue", 20)
-FONT_LABEL = ("Helvetica Neue", 18)
+FONT_HEADING = ("SF Pro Display", 52, "bold")
+FONT_TIMER = ("SF Pro Display", 90)
+FONT_SMALL = ("SF Pro Display", 14)
+FONT_MEDIUM = ("SF Pro Display", 20)
+FONT_LABEL = ("SF Pro Display", 18)
 
 button_style = {
-    "font": ("Helvetica Neue", 18, "bold"),
+    "font": ("SF Pro Display", 18, "bold"),
     "fg": "#121212",
     "bg": MAIN_COLOR,
     "activebackground": "#00ccaa",
